@@ -39,12 +39,14 @@ namespace WindowsFormsApplication3
         private void button1_Click(object sender, EventArgs e)
         {
             t1 = new Thread(thread1);
+            t1.IsBackground = true;
             t1.Start(); 
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             t2 = new Thread(thread2);
+            t2.IsBackground = true;
             t2.Start();
         }
 
