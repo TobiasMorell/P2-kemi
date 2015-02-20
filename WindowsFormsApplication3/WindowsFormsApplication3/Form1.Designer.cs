@@ -1,4 +1,6 @@
-﻿namespace WindowsFormsApplication3
+﻿using System;
+
+namespace WindowsFormsApplication3
 {
     partial class Form1
     {
@@ -30,6 +32,9 @@
         {
             this.Start1 = new System.Windows.Forms.Button();
             this.Start2 = new System.Windows.Forms.Button();
+			this.tbX = new System.Windows.Forms.TextBox ();
+			this.tbY = new System.Windows.Forms.TextBox ();
+			this.addButton = new System.Windows.Forms.Button ();
             this.SuspendLayout();
             // 
             // Start1
@@ -51,6 +56,35 @@
             this.Start2.Text = "Start 2";
             this.Start2.UseVisualStyleBackColor = true;
             this.Start2.Click += new System.EventHandler(this.button2_Click);
+			//
+			// Forsøg på x-koordinat textbox
+			//
+			this.tbX.Location = new System.Drawing.Point (527, 70);
+			this.tbX.Name = "X-koordinat";
+			this.tbX.Size = new System.Drawing.Size (75, 23);
+			this.tbX.TabIndex = 2;
+			this.tbX.Text = "X-koordinat";
+			this.Controls.Add (this.tbX);
+			//
+			//Forsøg på y-koordinat
+			//
+			this.tbY.Location = new System.Drawing.Point (527, 100);
+			this.tbY.Name = "Y-koordinat";
+			this.tbY.Size = new System.Drawing.Size (75, 23);
+			this.tbY.TabIndex = 3;
+			this.tbY.Text = "Y-koordinat";
+			this.Controls.Add (this.tbY);
+			//
+			// addButton
+			//
+			this.addButton.Location = new System.Drawing.Point (527, 130);
+			this.addButton.Name = "Add";
+			this.addButton.Size = new System.Drawing.Size (90, 23);
+			this.addButton.TabIndex = 2;
+			this.addButton.Text = "Add";
+			this.addButton.UseVisualStyleBackColor = true;
+			this.addButton.Click += new System.EventHandler (this.addButton_Click);
+			this.Controls.Add (this.addButton);
             // 
             // Form1
             // 
@@ -69,6 +103,9 @@
 
         private System.Windows.Forms.Button Start1;
         private System.Windows.Forms.Button Start2;
+		public System.Windows.Forms.TextBox tbX;
+		public System.Windows.Forms.TextBox tbY;
+		private System.Windows.Forms.Button addButton;
     }
 }
 

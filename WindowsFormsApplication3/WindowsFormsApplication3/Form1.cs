@@ -35,6 +35,7 @@ namespace WindowsFormsApplication3
         }
 
         Thread t1, t2;
+		List<Point> coordinates = new List<Point> ();
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -47,6 +48,22 @@ namespace WindowsFormsApplication3
             t2 = new Thread(thread2);
             t2.Start();
         }
+		private void addButton_Click(object sender, EventArgs e){
+			Point inputPoint = new Point ();
+			int X, Y;
+			try{
+				X = int.Parse(tbX.Text);
+				Y = int.Parse(tbY.Text);
+				inputPoint.X = X;
+				inputPoint.Y = Y;
+				coordinates.Add(inputPoint);
+				System.Drawing.Graphics point = this.CreateGraphics();
+				point.FillEllipse(Brushes.Azure, new Rectangle(inputPoint.X, inputPoint.Y, 10, 10));
+			}
+			catch{
+				Console.WriteLine ("An error occured when processing coordinates");
+			}
+		}
 
         public void thread1()
         {
