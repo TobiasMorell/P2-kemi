@@ -39,14 +39,12 @@ namespace WindowsFormsApplication3
         private void button1_Click(object sender, EventArgs e)
         {
             t1 = new Thread(thread1);
-            t1.IsBackground = true;
             t1.Start(); 
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             t2 = new Thread(thread2);
-            t2.IsBackground = true;
             t2.Start();
         }
 
@@ -70,6 +68,11 @@ namespace WindowsFormsApplication3
                 this.CreateGraphics().DrawLine(new Pen(Brushes.White, 1), new Point(x, y), new Point((x = i), (y = 400 + (int)(Math.Sin(i) * 100))));
                 System.Threading.Thread.Sleep(40);
             }
+        }
+
+        protected override void OnClosed(EventArgs e)
+        {
+            Environment.Exit(Environment.ExitCode);
         }
     }
 }
