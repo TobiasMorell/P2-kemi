@@ -16,15 +16,14 @@ namespace WindowsFormsApplication3
         public Form1()
         {
             InitializeComponent();
-            this.Paint += Axis;
         }
 
-        private void Axis(object sender, PaintEventArgs e)
+        private void Axis()
         {
             Point[] graph = { new Point(10, 10),    new Point(10, 510),     new Point(510, 510),
                               new Point(2, 18),     new Point(10, 11),      new Point(17, 18),
                               new Point(502, 502),  new Point(511, 510),    new Point(502, 517)};
-            Graphics g = e.Graphics;
+            Graphics g = this.CreateGraphics();
             g.DrawLine(new Pen(Brushes.Black, 4), graph[0], graph[1]);
             g.DrawLine(new Pen(Brushes.Black, 4), graph[1], graph[2]);
             g.DrawLine(new Pen(Brushes.Black, 3), graph[3], graph[4]);
@@ -85,11 +84,18 @@ namespace WindowsFormsApplication3
                 this.CreateGraphics().DrawLine(new Pen(Brushes.White, 1), new Point(x, y), new Point((x = i), (y = 400 + (int)(Math.Sin(i) * 100))));
                 System.Threading.Thread.Sleep(40);
             }
+            this.CreateGraphics().Clear(Color.Gray);
+            Axis();
         }
 
         protected override void OnClosed(EventArgs e)
         {
             Environment.Exit(Environment.ExitCode);
+        }
+
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            Axis();
         }
     }
 }
