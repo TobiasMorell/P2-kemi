@@ -15,6 +15,8 @@ namespace WindowsFormsApplication3
     {
         public Form1()
         {
+            t1 = new Thread(thread1);
+            t2 = new Thread(thread2);
             InitializeComponent();
         }
 
@@ -38,14 +40,18 @@ namespace WindowsFormsApplication3
 
         private void button1_Click(object sender, EventArgs e)
         {
-            t1 = new Thread(thread1);
-            t1.Start(); 
+            if (!t1.IsAlive)
+            {
+                t1.Start();
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            t2 = new Thread(thread2);
-            t2.Start();
+            if (!t2.IsAlive)
+            {
+                t2.Start();
+            }
         }
 		private void addButton_Click(object sender, EventArgs e){
 			Point inputPoint = new Point ();
@@ -84,8 +90,6 @@ namespace WindowsFormsApplication3
                 this.CreateGraphics().DrawLine(new Pen(Brushes.White, 1), new Point(x, y), new Point((x = i), (y = 400 + (int)(Math.Sin(i) * 100))));
                 System.Threading.Thread.Sleep(40);
             }
-            this.CreateGraphics().Clear(Color.Gray);
-            Axis();
         }
 
         protected override void OnClosed(EventArgs e)
@@ -96,6 +100,21 @@ namespace WindowsFormsApplication3
         protected override void OnPaint(PaintEventArgs e)
         {
             Axis();
+        }
+
+        private void Clear_Click(object sender, EventArgs e)
+        {
+            this.CreateGraphics().Clear(Color.Gray);
+            Axis();
+        }
+
+        private void Stop_Click(object sender, EventArgs e)
+        {
+            t1.Abort();
+            t2.Abort();
+
+            t1 = new Thread(thread1);
+            t2 = new Thread(thread2);
         }
     }
 }
