@@ -18,7 +18,7 @@ namespace Legeprojekt
             Console.ReadKey();
             Console.WriteLine("<<33<43<evah3.");
             Console.ReadKey();
-            Console.WriteLine("Når du skriver den Password: ");
+            Console.WriteLine("Når du skriver den Password! (hint: forloren skildpadde");
             if (Console.ReadLine().Equals(""+ a + b + c + d))
             {
                 Console.WriteLine("YEHS!!! :*");
