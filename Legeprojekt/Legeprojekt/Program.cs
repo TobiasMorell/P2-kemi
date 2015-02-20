@@ -8,6 +8,12 @@ namespace Legeprojekt
 {
     class Program
     {
-		Console.WriteLine("Hej Arne. Du er lige så stor som Verden.");
+        public static void Main()
+        {
+		    Console.WriteLine("Hej Arne. Du er lige så stor som Verden.");
+            Console.ReadKey();
+            Console.WriteLine("<3<3<3.");
+            Console.ReadKey();
+        }
     }
 }
