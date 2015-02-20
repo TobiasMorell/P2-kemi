@@ -79,7 +79,7 @@ namespace WindowsFormsApplication3
             // 
             this.addButton.Location = new System.Drawing.Point(527, 130);
             this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(90, 23);
+            this.addButton.Size = new System.Drawing.Size(75, 23);
             this.addButton.TabIndex = 2;
             this.addButton.Text = "Add";
             this.addButton.UseVisualStyleBackColor = true;
