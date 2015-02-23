@@ -58,7 +58,7 @@ namespace WindowsFormsApplication3
 				inputPoint.X = X;
 				inputPoint.Y = Y;
 				coordinates.Add(inputPoint);
-				System.Drawing.Graphics point = this.CreateGraphics();
+				System.Drawing.Graphics point = panel1.CreateGraphics();
 				point.FillEllipse(Brushes.Azure, new Rectangle(inputPoint.X, inputPoint.Y, 10, 10));
 			}
 			catch{
@@ -132,6 +132,11 @@ namespace WindowsFormsApplication3
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void Lol_Click(object sender, EventArgs e)
+        {
+            panel1.Controls.Add(new Graph(100, 100, 300, 300));
         }
     }
 }
