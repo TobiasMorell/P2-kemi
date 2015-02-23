@@ -25,7 +25,7 @@ namespace WindowsFormsApplication3
             Point[] graph = { new Point(10, 10),    new Point(10, 510),     new Point(510, 510),
                               new Point(2, 18),     new Point(10, 11),      new Point(17, 18),
                               new Point(502, 502),  new Point(511, 510),    new Point(502, 517)};
-            Graphics g = this.CreateGraphics();
+            Graphics g = panel1.CreateGraphics();
             g.DrawLine(new Pen(Brushes.Black, 4), graph[0], graph[1]);
             g.DrawLine(new Pen(Brushes.Black, 4), graph[1], graph[2]);
             g.DrawLine(new Pen(Brushes.Black, 3), graph[3], graph[4]);
@@ -42,6 +42,12 @@ namespace WindowsFormsApplication3
         {
             if (!t1.IsAlive)
             {
+                Stop_Threads(true, false);
+                t1.Start();
+            }
+            else
+            {
+                Stop_Threads(true, false);
                 t1.Start();
             }
         }
@@ -50,6 +56,12 @@ namespace WindowsFormsApplication3
         {
             if (!t2.IsAlive)
             {
+                Stop_Threads(false, true);
+                t2.Start();
+            }
+            else
+            {
+                Stop_Threads(false, true);
                 t2.Start();
             }
         }
@@ -72,24 +84,24 @@ namespace WindowsFormsApplication3
 
         public void thread1()
         {
-            Random rand = new Random();
             int x = 10, y = 100;
             for (int i = 10; i < 510; i += 6)
             {
-                this.CreateGraphics().DrawLine(new Pen(Brushes.White, 1), new Point(x, y), new Point((x = i), (y = 100 + (int)(Math.Sin(i) * 100))));
+                panel1.CreateGraphics().DrawLine(new Pen(Brushes.White, 1), new Point(x, y), new Point((x = i), (y = 100 + (int)(Math.Sin(i) * 100))));
                 System.Threading.Thread.Sleep(20);
             }
+            Stop_Threads(true, false);
         }
 
         public void thread2()
         {
-            Random rand = new Random();
             int x = 10, y = 400;
             for (int i = 10; i < 510; i += 3)
             {
-                this.CreateGraphics().DrawLine(new Pen(Brushes.White, 1), new Point(x, y), new Point((x = i), (y = 400 + (int)(Math.Sin(i) * 100))));
+                panel1.CreateGraphics().DrawLine(new Pen(Brushes.White, 1), new Point(x, y), new Point((x = i), (y = 400 + (int)(Math.Sin(i) * 100))));
                 System.Threading.Thread.Sleep(40);
             }
+            Stop_Threads(false, true);
         }
 
         protected override void OnClosed(EventArgs e)
@@ -104,17 +116,38 @@ namespace WindowsFormsApplication3
 
         private void Clear_Click(object sender, EventArgs e)
         {
-            this.CreateGraphics().Clear(Color.Gray);
-            Axis();
+            Reset_Background();
+            Stop_Threads(true, true);
         }
 
         private void Stop_Click(object sender, EventArgs e)
         {
-            t1.Abort();
-            t2.Abort();
+            Stop_Threads(true, true);
+        }
 
-            t1 = new Thread(thread1);
-            t2 = new Thread(thread2);
+        private void Stop_Threads(bool first, bool second)
+        {
+            if (first)
+            {
+                t1.Abort();
+                t1 = new Thread(thread1);
+            }
+            if (second)
+            {
+                t2.Abort();
+                t2 = new Thread(thread2);
+            }
+        }
+
+        private void Reset_Background()
+        {
+            panel1.CreateGraphics().Clear(Color.Gray);
+            Axis();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

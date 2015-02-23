@@ -37,6 +37,7 @@ namespace WindowsFormsApplication3
             this.addButton = new System.Windows.Forms.Button();
             this.Clear = new System.Windows.Forms.Button();
             this.Stop = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // Start1
@@ -105,11 +106,20 @@ namespace WindowsFormsApplication3
             this.Stop.UseVisualStyleBackColor = true;
             this.Stop.Click += new System.EventHandler(this.Stop_Click);
             // 
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(521, 520);
+            this.panel1.TabIndex = 6;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(614, 521);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.Stop);
             this.Controls.Add(this.Clear);
             this.Controls.Add(this.tbX);
@@ -133,6 +143,7 @@ namespace WindowsFormsApplication3
 		private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.Button Clear;
         private System.Windows.Forms.Button Stop;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 
