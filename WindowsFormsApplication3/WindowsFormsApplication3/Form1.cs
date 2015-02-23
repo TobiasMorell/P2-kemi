@@ -100,8 +100,8 @@ namespace WindowsFormsApplication3
 
         private void Clear_Click(object sender, EventArgs e)
         {
-            Reset_Background();
             Stop_Threads(true, true);
+            Reset_Background();
         }
 
         private void Stop_Click(object sender, EventArgs e)
