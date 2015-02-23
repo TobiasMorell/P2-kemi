@@ -40,30 +40,14 @@ namespace WindowsFormsApplication3
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (!t1.IsAlive)
-            {
-                Stop_Threads(true, false);
-                t1.Start();
-            }
-            else
-            {
-                Stop_Threads(true, false);
-                t1.Start();
-            }
+        Stop_Threads(true, false);
+        t1.Start();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (!t2.IsAlive)
-            {
-                Stop_Threads(false, true);
-                t2.Start();
-            }
-            else
-            {
-                Stop_Threads(false, true);
-                t2.Start();
-            }
+        Stop_Threads(false, true);
+        t2.Start();
         }
 		private void addButton_Click(object sender, EventArgs e){
 			Point inputPoint = new Point ();
