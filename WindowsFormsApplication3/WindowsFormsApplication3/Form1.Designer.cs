@@ -38,6 +38,7 @@ namespace WindowsFormsApplication3
             this.Clear = new System.Windows.Forms.Button();
             this.Stop = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.Lol = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Start1
@@ -114,11 +115,22 @@ namespace WindowsFormsApplication3
             this.panel1.TabIndex = 6;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
+            // Lol
+            // 
+            this.Lol.Location = new System.Drawing.Point(527, 366);
+            this.Lol.Name = "Lol";
+            this.Lol.Size = new System.Drawing.Size(75, 23);
+            this.Lol.TabIndex = 7;
+            this.Lol.Text = "Lol";
+            this.Lol.UseVisualStyleBackColor = true;
+            this.Lol.Click += new System.EventHandler(this.Lol_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(614, 521);
+            this.Controls.Add(this.Lol);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.Stop);
             this.Controls.Add(this.Clear);
@@ -144,6 +156,7 @@ namespace WindowsFormsApplication3
         private System.Windows.Forms.Button Clear;
         private System.Windows.Forms.Button Stop;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button Lol;
     }
 }
 
