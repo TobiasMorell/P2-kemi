@@ -1,6 +1,11 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workbench ActiveDocument="WindowsFormsApplication3/Form1.cs">
+    <Files>
+      <File FileName="WindowsFormsApplication3/Form1.cs" Line="80" Column="38" />
+      <File FileName="WindowsFormsApplication3/Form1.Designer.cs" Line="44" Column="63" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

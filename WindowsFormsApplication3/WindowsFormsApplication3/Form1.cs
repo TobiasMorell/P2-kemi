@@ -25,7 +25,7 @@ namespace WindowsFormsApplication3
             Point[] graph = { new Point(10, 10),    new Point(10, 510),     new Point(510, 510),
                               new Point(2, 18),     new Point(10, 11),      new Point(17, 18),
                               new Point(502, 502),  new Point(511, 510),    new Point(502, 517)};
-            Graphics g = panel1.CreateGraphics();
+            Graphics g = graphPanel.CreateGraphics();
             g.DrawLine(new Pen(Brushes.Black, 4), graph[0], graph[1]);
             g.DrawLine(new Pen(Brushes.Black, 4), graph[1], graph[2]);
             g.DrawLine(new Pen(Brushes.Black, 3), graph[3], graph[4]);
@@ -57,36 +57,30 @@ namespace WindowsFormsApplication3
 				Y = int.Parse(tbY.Text);
 				inputPoint.X = X;
 				inputPoint.Y = Y;
-				coordinates.Add(inputPoint);
-				System.Drawing.Graphics point = panel1.CreateGraphics();
-				point.FillEllipse(Brushes.Azure, new Rectangle(inputPoint.X, inputPoint.Y, 10, 10));
 			}
 			catch{
-				Console.WriteLine ("An error occured when processing coordinates");
+				Console.WriteLine("An error occured when processing coordinates");
 			}
+			coordinates.Add(inputPoint);
+			Graph.printPoint(graphPanel, inputPoint);
 		}
 
-        public void thread1()
-        {
-            int x = 10, y = 100;
-            for (int i = 10; i < 510; i += 6)
-            {
-                panel1.CreateGraphics().DrawLine(new Pen(Brushes.White, 1), new Point(x, y), new Point((x = i), (y = 100 + (int)(Math.Sin(i) * 100))));
-                System.Threading.Thread.Sleep(20);
-            }
-            Stop_Threads(true, false);
-        }
+		public void thread1()
+		{
+			Graph.sineCurve(graphPanel, 30, 10, 100);
+			Stop_Threads(true, false);
+		}
 
-        public void thread2()
-        {
-            int x = 10, y = 400;
-            for (int i = 10; i < 510; i += 3)
-            {
-                panel1.CreateGraphics().DrawLine(new Pen(Brushes.White, 1), new Point(x, y), new Point((x = i), (y = 400 + (int)(Math.Sin(i) * 100))));
-                System.Threading.Thread.Sleep(40);
-            }
-            Stop_Threads(false, true);
-        }
+		public void thread2()
+		{
+			int x = 10, y = 400;
+			for (int i = 10; i < 510; i += 3)
+			{
+				graphPanel.CreateGraphics().DrawLine(new Pen(Brushes.Red, 1), new Point(x, y), new Point((x = i), (y = 400 + (int)(Math.Sin(i) * 100))));
+				System.Threading.Thread.Sleep(40);
+			}
+			Stop_Threads(false, true);
+		}
 
         protected override void OnClosed(EventArgs e)
         {
@@ -125,18 +119,36 @@ namespace WindowsFormsApplication3
 
         private void Reset_Background()
         {
-            panel1.CreateGraphics().Clear(Color.Gray);
+			graphPanel.CreateGraphics ().Clear (Color.Gray);
             Axis();
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
-
+			Axis ();
         }
 
-        private void Lol_Click(object sender, EventArgs e)
+        private void grid_Click(object sender, EventArgs e)
         {
-            panel1.Controls.Add(new Graph(100, 100, 300, 300));
+			for (int i = 10; i < 510; i++) {
+				if (i % 20 == 0) {
+					Point top = new Point (i + 10, 510);
+					Point bottom = new Point (i + 10, 10);
+					Point left = new Point (10, i+10);
+					Point right = new Point (510, i+10);
+					graphPanel.CreateGraphics ().DrawLine (new Pen (Brushes.Black), bottom, top);
+					graphPanel.CreateGraphics ().DrawLine (new Pen (Brushes.Black), left, right);
+				}
+			}
         }
+
+		void tbX_Click (object sender, EventArgs e)
+		{
+			tbX.SelectAll ();
+		}
+		void tbY_Click (object sender, EventArgs e)
+		{
+			tbY.SelectAll ();
+		}
     }
 }
