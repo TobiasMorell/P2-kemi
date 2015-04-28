@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "modelTest", "modelTest\modelTest.csproj", "{9B0566E4-90E7-4627-8A20-1D5853057BC9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quadruple", "..\..\Quadlib\Quadruple.csproj", "{286AE771-0E46-491A-BC01-E6E759C8371B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9B0566E4-90E7-4627-8A20-1D5853057BC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B0566E4-90E7-4627-8A20-1D5853057BC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B0566E4-90E7-4627-8A20-1D5853057BC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B0566E4-90E7-4627-8A20-1D5853057BC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{286AE771-0E46-491A-BC01-E6E759C8371B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{286AE771-0E46-491A-BC01-E6E759C8371B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{286AE771-0E46-491A-BC01-E6E759C8371B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{286AE771-0E46-491A-BC01-E6E759C8371B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
